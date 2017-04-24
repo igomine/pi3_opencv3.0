@@ -12,4 +12,4 @@ cv2.imwrite('RandomGray.png', grayImage)
 
 
 bgrImage = flatNumpyArray.reshape(100, 400, 3)
-cv2.imwrite('RandomColor.png',bgrImage)
+cv2.imwrite('RandomColor.png', bgrImage)
