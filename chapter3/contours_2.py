@@ -1,15 +1,19 @@
 import cv2
 import numpy as np
 
-img = cv2.pyrDown(cv2.imread("hammer.jpg", cv2.IMREAD_UNCHANGED))
+
+# cv2.imshow("orgin", cv2.imread("../images/hammer.jpg"))
+img = cv2.pyrDown(cv2.imread("../images/hammer.jpg", cv2.IMREAD_UNCHANGED))
+# cv2.imshow("pyrdown", img)
+
 
 ret, thresh = cv2.threshold(cv2.cvtColor(img.copy(), cv2.COLOR_BGR2GRAY) , 127, 255, cv2.THRESH_BINARY)
 image, contours, hier = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 for c in contours:
   # find bounding box coordinates
-  x,y,w,h = cv2.boundingRect(c)
-  cv2.rectangle(img, (x,y), (x+w, y+h), (0, 255, 0), 2)
+  x, y, w, h = cv2.boundingRect(c)
+  cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
   # find minimum area
   rect = cv2.minAreaRect(c)
