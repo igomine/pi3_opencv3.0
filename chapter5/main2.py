@@ -21,8 +21,8 @@ def detect():
             cv2.rectangle(img,(x+ex,y+ey),(x+ex+ew,y+ey+eh),(0,255,0),2)
 
     cv2.imshow("camera", frame)
-    if cv2.waitKey(1000 / 12) & 0xff == ord("q"):
-      break
+    # if cv2.waitKey(1000 / 12) & 0xff == ord("q"):
+    #   break
 
   camera.release()
   cv2.destroyAllWindows()
